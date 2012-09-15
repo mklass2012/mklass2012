@@ -16,11 +16,40 @@ img{
 }
 /* Селектор идентификоторов */
 #autumn{
-  display: none;
+  display: inline;
 }
 
-/*  */
-a[target]{
+/* Селекторы атрибутов */
+/* наличие такого атрибута */
+[target]{
   font-weight: bold;
   font-size: 24px;
+}
+/* атрибут точно равен заданному значению */
+[width="300"]{
+  border: aqua dashed 5px;
+}
+/* Значение атрибута начинается с определенного текста */
+[href^="http"]{
+  color: red;
+}
+/* Значение атрибута оканчивается определенным текстом */
+[href$="pdf"],
+[href$="zip"],
+[href$="avi"]{
+  background-repeat: no-repeat;
+  background-position: left top;
+  line-height: 32px;
+  display: inline-block;
+  height: 40px;
+  padding-left: 42px;
+}
+[href$="pdf"]{
+  background-image: url("../img/pdf.png");
+}
+[href$="zip"]{
+  background-image: url("../img/zip.gif");
+}
+[href$="avi"]{
+  background-image: url("../img/avi.png");
 }
