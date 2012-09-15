@@ -1,0 +1,26 @@
+/* Универсальный селектор */
+*{
+  margin: 0;
+  padding: 0;
+}
+/* Селекторы тегов (элементов) */
+p{
+  color: #0099ff;
+}
+img{
+
+}
+/* Селектор класса */
+.external{
+  display: inline;
+}
+/* Селектор идентификоторов */
+#autumn{
+  display: none;
+}
+
+/*  */
+a[target]{
+  font-weight: bold;
+  font-size: 24px;
+}
