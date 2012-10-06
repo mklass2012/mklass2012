@@ -1,3 +1,6 @@
+*{
+  font-family: verdana, arial, sans-serif;
+}
 #wrapper{
   width: 980px;
   margin: 0 auto;
@@ -7,35 +10,86 @@
 #header{
   height: 271px;
 }
-/* меню */
+/* общее меню */
+#common_menu{
+  float: right;
+  margin: 0;
+}
+#common_menu li{
+  display: inline-block;
+  padding: 0px 5px;
+}
+#common_menu li a{
+  font-size: 12px;
+  border-left: 2px grey solid;
+  padding-left: 10px;
+  color:grey;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#common_menu li a:hover{
+  text-decoration: underline;
+}
+#common_menu li a:active{
+  color:yellow;
+}
+#common_menu li:first-child a{
+  border-left-style: none;
+}
+/* главное меню */
 #header .nav{
   float: right;
   height: 46px;
+  padding: 0;
+  margin-right: 10px;
   background: transparent url(../img/header_nav_bg.jpg) no-repeat center center;
+  box-shadow: 3px 3px 7px #333;
 }
 /* пункт меню */
 #header .nav li{
   display: inline-block;
-  min-width: 114px;
-  padding: 16px;
+  min-width: 146px;
+  padding: 0px;
+}
+#header .nav li a:hover{
+  /*background: rgba(200, 0, 0, 0.75);*/
+  /*color:black;*/
+  border-color: white;
 }
 #header .nav a{
+  text-decoration: none;
   color: white;
+  display: block;
+  height: 100%;
+  padding: 6px 16px 16px;
+  text-align: center;
+  border-top: 6px transparent solid;
+  text-shadow: 1px 1px 3px black;
 }
-
+/**/
 /* боковая панель */
-#sidebar,
-#content{
-  border: 1px solid red;
-}
 #sidebar{
   width: 250px;
   float: left;
+  background: white;
 }
 #content{
   border-color:blue;
   overflow: auto;
+  background-color: white;
+  padding-left: 12px;
+  background: white url(../img/content_shadow.png) no-repeat left top;
 }
+.paging input{
+  background-color: white;
+  color: black;
+}
+.paging input:focus{
+  /*background-color: #0099ff;*/
+  color: white;
+  text-shadow: 1px -2px 2px grey;
+}
+
 #footer{
   clear: both;
 }
