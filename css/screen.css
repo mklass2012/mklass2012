@@ -67,18 +67,67 @@
   text-shadow: 1px 1px 3px black;
 }
 /**/
+#middle{
+  background-color: white;
+}
+#middle:after{
+  content: "";
+  display: block;
+  clear: both;
+}
 /* боковая панель */
 #sidebar{
   width: 250px;
   float: left;
   background: white;
 }
+#sidebar img.curr_main_menu{
+  float: right;
+  width: 60px;
+  height: 60px;
+}
+#sidebar>img.curr_main_menu+h1{
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+#sidebar>.description{
+  font-size: 7px;
+}
+#sidebar>.alexey_suranov{
+  border: 3px solid #135A75;
+  background-color: #76A345;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+ul.nav.context{
+  margin: 10px 0px;
+  padding: 0;
+}
+ul.nav.context li{
+  border-color: #EFEFEF;
+  border-width: 1px;
+  border-bottom-style: solid ;
+  margin: 0px;
+  padding: 7px 20px 7px 7px;
+  list-style-type: none;
+  background: transparent url(../img/nav_context_arrow.png) no-repeat right center;
+}
+ul.nav.context li:first-child{
+  border-top-style: solid;
+}
+/* Основное содержимое */
 #content{
+  position: relative;
+  top:-15px;
   border-color:blue;
   overflow: auto;
-  background-color: white;
+/*  background-color: white;*/
   padding-left: 12px;
-  background: white url(../img/content_shadow.png) no-repeat left top;
+  background: transparent url(../img/content_shadow.png) no-repeat left top;
+}
+.inner{
+  background: white;
 }
 .paging input{
   background-color: white;
@@ -93,3 +142,4 @@
 #footer{
   clear: both;
 }
+
