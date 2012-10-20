@@ -52,11 +52,14 @@
   padding: 0px;
 }
 #header .nav li a:hover{
-  /*background: rgba(200, 0, 0, 0.75);*/
-  /*color:black;*/
   border-color: white;
+  text-shadow: 0 0 10px white, 0 0 20px white, 
+      0 0 30px #0B75AF, 0 0 40px #0B75AF, 0 0 70px #0B75AF;
 }
 #header .nav a{
+  -webkit-transition-duration: 800ms;
+  -webkit-transition-property: text-shadow,border-color;
+  -webkit-transition-function: ease;
   text-decoration: none;
   color: white;
   display: block;
@@ -142,4 +145,3 @@ ul.nav.context li:first-child{
 #footer{
   clear: both;
 }
-
