@@ -60,6 +60,15 @@
   -webkit-transition-duration: 800ms;
   -webkit-transition-property: text-shadow,border-color;
   -webkit-transition-function: ease;
+  -o-transition-duration: 800ms;
+  -o-transition-property: text-shadow,border-color;
+  -o-transition-function: ease;
+  -moz-transition-duration: 800ms;
+  -moz-transition-property: text-shadow,border-color;
+  -moz-transition-function: ease;
+  transition-duration: 800ms;
+  transition-property: text-shadow,border-color;
+  transition-function: ease;
   text-decoration: none;
   color: white;
   display: block;
