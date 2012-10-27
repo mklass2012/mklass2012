@@ -1,3 +1,16 @@
+<?php
+$year = 2012;
+
+function retArray($param1, $param2, $param3 = 1970) {
+  $arr = array($param1, $param2, $param3);
+  return $arr;
+}
+
+$arr2[] = 'krghkjr tryhy{$year} yhr hyr'; // krghkjr tryhy{$year} yhr hyr
+$arr2[] = "krghkjr tryhy{$year} yhr hyr"; // krghkjr tryhy2012 yhr hyr
+$arr2['serg'] = 24;
+$arr2[] = 125;
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +29,8 @@
             <a href="#">Sitemap</a>
           </li>
           <li>
-            <a href="#">Contact us</a>
+            <a href="#">Contact us
+            </a>
           </li>
         </ul>
         <ul id="main_menu" class="nav">
@@ -76,7 +90,24 @@
         </div>
       </div>
       <div id="footer">
-        Подвал страницы
+        <pre>
+          <?php
+          echo $year;
+          $natArr = retArray(23, "erhjbgrh", 0);
+          var_dump($arr2);
+          ?>
+        </pre>
+        <?php
+        echo $natArr[2];
+
+        unset($arr2[1]);
+        var_dump($arr2);?>
+        <ul>
+        <? foreach ($arr2 as $key => $vlad_s_value) {?>
+          <li class="<?= $key;?>"><?= $vlad_s_value; ?></li>
+        <? } ?>
+        </ul>
+        
       </div>
     </div>
   </body>

@@ -1,14 +1,19 @@
 *{
   font-family: verdana, arial, sans-serif;
 }
+html,
+body{
+  background-color: #265a36;
+}
 #wrapper{
-  width: 980px;
+  width: 962px;
+  padding-left: 18px;
   margin: 0 auto;
-  background-image: url(../img/bg.png);
+  background: #265a36 url("../img/bg.png") left top no-repeat;
 }
 /* шапка чтраницы */
 #header{
-  height: 271px;
+  height: 285px;
 }
 /* общее меню */
 #common_menu{
@@ -42,7 +47,7 @@
   height: 46px;
   padding: 0;
   margin-right: 10px;
-  background: transparent url(../img/header_nav_bg.jpg) no-repeat center center;
+  background: transparent url("../img/header_nav_bg.jpg") no-repeat center center;
   box-shadow: 3px 3px 7px #333;
 }
 /* пункт меню */
@@ -89,9 +94,10 @@
 }
 /* боковая панель */
 #sidebar{
-  width: 250px;
+  width: 170px;
   float: left;
   background: white;
+  padding: 8px 4px 8px 8px;
 }
 #sidebar img.curr_main_menu{
   float: right;
@@ -100,14 +106,23 @@
 }
 #sidebar>img.curr_main_menu+h1{
   font-weight: normal;
-  margin-bottom: 10px;
+  color: #697b2f;
+  font-size: 20px;
+  margin: 0px;
+  padding: 8px 0px 1px;
 }
 #sidebar>.description{
   font-size: 7px;
+  padding: 1px 0px 5px;
+  margin: 0px;
 }
 #sidebar>.alexey_suranov{
-  border: 3px solid #135A75;
-  background-color: #76A345;
+  border: 1px solid #fff;
+  padding: 1px 4px;
+  color: white;
+  font-size: 8px;
+  text-transform: uppercase;
+  background: white url("../img/description_bg.png") repeat-y left top;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -115,6 +130,7 @@
 ul.nav.context{
   margin: 10px 0px;
   padding: 0;
+  clear: both;
 }
 ul.nav.context li{
   border-color: #EFEFEF;
@@ -128,6 +144,35 @@ ul.nav.context li{
 ul.nav.context li:first-child{
   border-top-style: solid;
 }
+ul.nav.context li a{
+  font-size: 13px;
+  color: #79924c;
+  text-decoration: none;
+}
+ul.nav.context li a.active,
+ul.nav.context li a:hover{
+  color: #4e6404;
+}
+ul.nav.context li a.active{
+  font-size: 14px;
+}
+ul.nav.context li a:hover{
+  text-decoration: underline;
+}
+.info{
+  padding: 3px;
+  border: 1px solid #d8d8d8;
+  background: transparent url("../img/grey_bg.png") repeat-x bottom left;
+  margin-bottom: 8px;
+}
+.info:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.info img{
+  float: left;
+}
 /* Основное содержимое */
 #content{
   position: relative;
@@ -140,6 +185,7 @@ ul.nav.context li:first-child{
 }
 .inner{
   background: white;
+  padding: 28px;
 }
 .paging input{
   background-color: white;
@@ -153,4 +199,9 @@ ul.nav.context li:first-child{
 
 #footer{
   clear: both;
+  color: white;
+  background: #134912;
+  padding: 10px;
+  min-height: 24px;
+  font-size: 9px;
 }
