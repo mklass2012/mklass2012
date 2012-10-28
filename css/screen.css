@@ -3,13 +3,15 @@
 }
 html,
 body{
-  background-color: #265a36;
+  background: #265a36 url("../img/noisy-texture-body_bg.png");
+  margin: 0px;
+  padding: 0px;
 }
 #wrapper{
   width: 962px;
   padding-left: 18px;
-  margin: 0 auto;
-  background: #265a36 url("../img/bg.png") left top no-repeat;
+  margin: 5px auto 0px;
+  background: transparent url("../img/bg.png") left top no-repeat;
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.25);
 }
 /* шапка чтраницы */
@@ -265,8 +267,8 @@ ul.nav.context li a:hover{
   padding: 0px 0px 20px;
 }
 #content .top .page_name{
-  background: url("../img/curr_page.png") no-repeat 12px center;
-  padding: 0px 0px 0px 30px;
+  background: url("../img/curr_page.png") no-repeat left center;
+  padding: 0px 0px 0px 15px;
   color: #5d7900;
   font-size: 24px;
 }
@@ -361,9 +363,14 @@ ul.nav.context li a:hover{
   color: white;
   cursor: pointer;
 }
+.paging [type="submit"]:hover,
+.paging .refresh:hover{
+  background-color: #134912;
+}
 .paging .refresh{
   float: right;
 }
+
 .pages{
   margin: 20px;
   clear: both;
@@ -394,6 +401,9 @@ ul.nav.context li a:hover{
   border-left: 1px solid #666666;
   padding: 2px 2px 1px 8px;
   font-weight: normal;
+}
+.pages .numbers a:first-child{
+  border-left:none;
 }
 .pages .numbers a.curr,
 .pages .numbers a:hover{
