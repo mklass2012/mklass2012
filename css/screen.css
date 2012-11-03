@@ -63,7 +63,7 @@ body{
 /* пункт меню */
 #header .nav li{
   display: inline-block;
-  min-width: 146px;
+  min-width: 126px;
   padding: 0px;
   vertical-align: top;
 }
@@ -72,9 +72,10 @@ body{
   text-shadow: 0 0 10px white, 0 0 20px white, 
     0 0 30px #0B75AF, 0 0 40px #0B75AF, 0 0 70px #0B75AF;
 }
-#header .nav a.active{
+#header .nav a.current{
   font-size: 22px;
   padding-top: 2px;
+  border-top-color: white;
 }
 #header .nav a{
   -webkit-transition-duration: 800ms;
@@ -215,11 +216,11 @@ ul.nav.context li a{
   color: #79924c;
   text-decoration: none;
 }
-ul.nav.context li a.active,
+ul.nav.context li a.current,
 ul.nav.context li a:hover{
   color: #4e6404;
 }
-ul.nav.context li a.active{
+ul.nav.context li a.current{
   font-size: 14px;
 }
 ul.nav.context li a:hover{
