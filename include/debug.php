@@ -1,22 +1,27 @@
 <style>
   #debug{
+    border: 5px solid white;
     position: fixed;
-    right: -250px;
+    right: -350px;
     top: 5px;
     bottom: 5px;
-    width: 410px;
+    width: 510px;
     font-size: 11px;
     background: white;
     overflow: auto;
+    opacity: 0.5;
   }
   #debug:hover{
     right: 0px;
+    opacity: 1;
   }
   #debug h2{
     background: grey;
     color:white;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: normal;
     margin: 0px;
+    padding: 1px 5px;
   }
   #debug>div{
     overflow: auto;
