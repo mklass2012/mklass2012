@@ -1,3 +1,10 @@
+<?php 
+session_start();
+require_once 'include/auth.php'; 
+if (isset($_COOKIE['last_login'])) {
+  //$_SESSION['l_l'] = $_COOKIE['last_login'];
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,5 +43,6 @@
       <?php include 'include/footer.php'; ?>
       <?php require 'include/banners.php'; ?>
     </div>
+    <?php include 'include/debug.php'; ?>
   </body>
 </html>

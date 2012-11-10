@@ -1,8 +1,8 @@
 <?php
 
-$main_menu[] = array('href'=>'index','name'=>'Главная');
-$main_menu[] = array('href'=>'examples','name'=>'Примеры работ');
-$main_menu[] = array('href'=>'contacts','name'=>'Контакты');
-$main_menu[] = array('href'=>'sitemap','name'=>'Карта сайта');
-$main_menu[] = array('href'=>'#','name'=>'Цены');
+$main_menu[0] = array('href'=>'index','name'=>'Главная','title'=>'Это самая главная страница сайта!!');
+$main_menu[1] = array('href'=>'examples','name'=>'Примеры работ','title'=>'Здесь Вы можете посмотреть на лучшие наши работы');
+$main_menu[2] = array('href'=>'contacts','name'=>'Контакты','title'=>'Это самая главная страница сайта!!');
+$main_menu[3] = array('href'=>'sitemap','name'=>'Карта сайта','title'=>'Это самая главная страница сайта!!');
+$main_menu[4] = array('href'=>'#','name'=>'Цены','title'=>'Это самая главная страница сайта!!');
 ?>

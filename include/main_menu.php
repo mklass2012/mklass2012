@@ -7,7 +7,7 @@
       $active = 'class = "current" ';
     }
     ?>
-    <li>
+    <li title="<?php echo $main_menu_item['title']; ?>">
       <a <?php echo @$active; ?>href="?page=<?php echo $main_menu_item['href']; ?>"><?php echo $main_menu_item['name']; ?></a>
     </li>
   <?php } ?>
