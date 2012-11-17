@@ -421,3 +421,31 @@ ul.nav.context li a:hover{
   min-height: 24px;
   font-size: 9px;
 }
+#login,
+#logout{
+  border: 1px solid lightgrey;
+  margin: 5px;
+  padding: 10px 5px;
+  position: relative;
+  
+}
+#login input{
+  width: 98%;
+}
+#login:before{
+  content: "Вход";
+  position: absolute;
+  font-size: 10px;
+  color: grey;
+  left: 10px;
+  top: -7px;
+  background-color: white;
+  padding: 1px 5px;
+}
+.error{
+  background-color: red;
+  color:white;
+}
+input:focus{
+  outline: 2px solid greenyellow;
+}

@@ -1,5 +1,10 @@
 <?php 
+
 session_start();
+define('ROLE_ADMIN', 0);
+define('ROLE_PUBLISHER', 10);
+define('ROLE_GUEST', 100);
+
 require_once 'include/auth.php'; 
 if (isset($_COOKIE['last_login'])) {
   //$_SESSION['l_l'] = $_COOKIE['last_login'];
