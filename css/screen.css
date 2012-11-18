@@ -27,6 +27,8 @@ body{
   float: right;
   margin: 0px 25px 0px 0px;
   line-height: 8px;
+  width: 600px;
+  text-align: right;
 }
 #common_menu li{
   display: inline-block;
