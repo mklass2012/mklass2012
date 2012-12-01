@@ -1,6 +1,9 @@
 <?php 
 
+require_once 'include/config.php';
+
 session_start();
+
 define('ROLE_ADMIN', 0);
 define('ROLE_PUBLISHER', 10);
 define('ROLE_GUEST', 100);

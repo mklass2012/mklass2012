@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 24 2012 г., 15:14
+-- Время создания: Дек 01 2012 г., 16:28
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `mklass2012`
 --
-CREATE DATABASE `mklass2012` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `mklass2012`;
 
 -- --------------------------------------------------------
 
@@ -32,7 +30,8 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `parent_id` (`parent_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
@@ -92,16 +91,75 @@ INSERT INTO `page` (`id`, `title`, `description`, `content`, `href`) VALUES
 (1, 'Главная страница нашего демонстрационного сайта по курсу веб-программирования', 'Главная страница нашего демонстрационного сайта по курсу веб-программирования', 'Содержимое этой самой главной страницы. <strong> Как хорошо быть</strong> специалистом в IT.', 'index'),
 (2, 'Страница контактов', 'Описание этой страницы контактов', 'г.Харьков, ул.Ленина, д.3, кв.4', 'contacts');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `product`
+--
+
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `model` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+
+--
+-- Дамп данных таблицы `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `model`, `create_at`, `quantity`) VALUES
+(2, 'Телевизор LG', 'SmartTV', '2012-12-01 14:26:29', 2),
+(4, 'Фен Panasonic', '13', '2012-12-01 14:27:36', 1000),
+(5, 'LED ТЕЛЕВИЗОР SONY', 'KDL-22EX553', '2012-12-01 16:23:58', 12),
+(6, 'LED телевизор Philips', '22PDL4906H', '2012-12-01 16:23:58', 8),
+(7, 'Холодильник Zanussi', 'ZRT 724 W', '2012-12-01 16:25:14', 7),
+(8, 'Магнитола Supra', 'BB-CD201RD', '2012-12-01 16:25:14', 23),
+(9, 'MP3 плеер iRiver', 'E40 8Gb Black', '2012-12-01 16:27:04', 35),
+(10, 'MP3 плеер Canyon', 'CNR-MPV4CI 8Gb', '2012-12-01 16:27:04', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `login` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `pass` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `role` tinyint(3) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `pass`, `role`) VALUES
+(1, 'admin', 'adm', 0),
+(2, 'publisher', 'pub', 10),
+(3, 'guest', NULL, 100);
+
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
+-- Ограничения внешнего ключа таблицы `menu`
+--
+ALTER TABLE `menu`
+  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu_item` (`id`);
+
+--
 -- Ограничения внешнего ключа таблицы `menu_item`
 --
 ALTER TABLE `menu_item`
-  ADD CONSTRAINT `menu_item_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `menu_item_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `menu_item_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `menu_item_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

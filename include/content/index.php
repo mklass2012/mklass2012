@@ -1,3 +1,26 @@
+<?php
+if (isset($_SESSION['role']) && ($_SESSION['role'] == 0)) {
+  if (isset($_GET['action'])) {
+    switch ($_GET['action']) :
+      case 'delete':
+        if (isset($_GET['id'])) {
+          $id = strip_tags($_GET['id']);
+          $query_delete_product = "DELETE FROM product WHERE id=" . $id;
+          if (mysql_query($query_delete_product)) {
+            echo "Товар успешно удален!";
+          } else {
+            echo "Ошибка удаления!";
+          }
+        }
+        break;
+
+      default:
+        break;
+    endswitch;
+  }
+}
+?>
+
 <div class="data">
   <table>
     <thead>
@@ -7,79 +30,29 @@
         <th class="model">Модель</th>
         <th class="date">Дата поступления</th>
         <th class="count">Кол-во</th>
+        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 0)) { ?>
+        <th class="action">Действия</th>
+        <?php } ?>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="numb">1</td>
-        <td class="name">Товар 1</td>
-        <td class="model">Модель 1</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">11</td>
-      </tr>
-      <tr>
-        <td class="numb">2</td>
-        <td class="name">Товар 2</td>
-        <td class="model">Модель 2</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">12</td>
-      </tr>
-      <tr>
-        <td class="numb">3</td>
-        <td class="name">Товар 3</td>
-        <td class="model">Модель 3</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">13</td>
-      </tr>
-      <tr>
-        <td class="numb">4</td>
-        <td class="name">Товар 4</td>
-        <td class="model">Модель 4</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">14</td>
-      </tr>
-      <tr>
-        <td class="numb">5</td>
-        <td class="name">Товар 5</td>
-        <td class="model">Модель 5</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">15</td>
-      </tr>
-      <tr>
-        <td class="numb">6</td>
-        <td class="name">Товар 6</td>
-        <td class="model">Модель 6</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">16</td>
-      </tr>
-      <tr>
-        <td class="numb">7</td>
-        <td class="name">Товар 7</td>
-        <td class="model">Модель 7</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">17</td>
-      </tr>
-      <tr>
-        <td class="numb">8</td>
-        <td class="name">Товар 8</td>
-        <td class="model">Модель 8</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">18</td>
-      </tr>
-      <tr>
-        <td class="numb">9</td>
-        <td class="name">Товар 9</td>
-        <td class="model">Модель 9</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">19</td>
-      </tr>
-      <tr>
-        <td class="numb">10</td>
-        <td class="name">Товар 10</td>
-        <td class="model">Модель 10</td>
-        <td class="date">27.10.2012</td>
-        <td class="count">20</td>
-      </tr>
+      <?php
+      $query_select_products = "SELECT * FROM product";
+      $result_select_products = mysql_query($query_select_products);
+      $count = 1;
+      while ($product = mysql_fetch_assoc($result_select_products)) :
+        ?>
+        <tr>
+          <td class="numb"><?php echo $count++; ?></td>
+          <td class="name"><?php echo $product['name']; ?></td>
+          <td class="model"><?php echo $product['model']; ?></td>
+          <td class="date"><?php echo $product['create_at']; ?></td>
+          <td class="count"><?php echo $product['quantity']; ?></td>
+        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 0)) { ?>
+          <td class="action"><a href="?page=index&action=delete&id=<?php echo $product['id']; ?>">удалить</a></td>
+        <?php } ?>
+        </tr>
+      <?php endwhile; ?>
     </tbody>
 
   </table>
