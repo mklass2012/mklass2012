@@ -451,3 +451,11 @@ ul.nav.context li a:hover{
 input:focus{
   outline: 2px solid greenyellow;
 }
+.pages .numbers a.curr_p{
+  font-weight: bold;
+  color: blue;
+}
+.p_last,
+.p_first{
+  visibility: hidden;
+}

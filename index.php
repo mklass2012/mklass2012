@@ -3,6 +3,7 @@
 require_once 'include/config.php';
 
 session_start();
+error_reporting(E_ALL);
 
 define('ROLE_ADMIN', 0);
 define('ROLE_PUBLISHER', 10);
