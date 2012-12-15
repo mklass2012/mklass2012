@@ -1,5 +1,6 @@
 <div id="sidebar">
   <?php include 'include/auth_form.php'; ?>
+  <?php include 'include/sidebar_menu_price.php'; ?>
   <div class="info">
     <img src="img/phone.png" />
     <div class="name">Service Center</div>
