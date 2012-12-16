@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Дек 15 2012 г., 15:26
+-- Время создания: Дек 16 2012 г., 10:58
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 INSERT INTO `menu` (`id`, `name`, `parent_id`) VALUES
 (1, 'Главное меню', NULL),
 (2, 'Меню подвала', NULL),
-(3, 'Цены', 6),
+(3, 'Цены', 7),
 (4, 'Контакты', 2);
 
 -- --------------------------------------------------------
@@ -70,10 +70,10 @@ INSERT INTO `menu_item` (`id`, `name`, `page_id`, `menu_id`) VALUES
 (3, 'Примеры', 5, 1),
 (4, 'Карта сайта', 6, 1),
 (6, 'Цены', 7, 1),
-(7, 'Оптовые', 1, 3),
-(8, 'Розничные', 2, 3),
+(7, 'Оптовые', 10, 3),
+(8, 'Розничные', 11, 3),
 (9, 'Офис 1', 8, 4),
-(10, 'Офис 2', 5, 4);
+(10, 'Офис 2', 9, 4);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `href` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `href` (`href`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `page`
@@ -101,7 +101,10 @@ INSERT INTO `page` (`id`, `title`, `description`, `content`, `href`) VALUES
 (5, 'Примеры работ', NULL, 'Содержимое примеров работ', 'examples'),
 (6, 'Карта сайта', 'Здесь Вы можете увидеть всю структуру сайта', 'Содержимое "Карта сайта"', 'sitemap'),
 (7, 'Наш прайс', 'Наш прайс', 'Каталог цен (проверяйте каждый день, может повезет:)', 'price'),
-(8, 'Офис 1', 'керкерке', 'Контакты в офисе №1', 'office1');
+(8, 'Офис 1', 'Контакты в офисе 1', 'Контакты в офисе №1', 'office1'),
+(9, 'Офис 2', 'Контакты в офисе 2', 'Контакты в офисе №2', 'office2'),
+(10, 'Оптовые', 'оптовые цены', '12грн.,45грн.,76грн.', 'opt'),
+(11, 'Розничные цены', 'Цен для розничных покупателей', '17грн., 60грн.,100грн.', 'roznica');
 
 -- --------------------------------------------------------
 
@@ -164,7 +167,7 @@ INSERT INTO `user` (`id`, `login`, `pass`, `role`) VALUES
 -- Ограничения внешнего ключа таблицы `menu`
 --
 ALTER TABLE `menu`
-  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu_item` (`id`);
+  ADD CONSTRAINT `menu_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `page` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `menu_item`
