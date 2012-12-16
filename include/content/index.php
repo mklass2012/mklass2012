@@ -100,7 +100,7 @@ $p_last_class = ($p == $num_pages) ? " class=\"p_last\"" : "";
       Кол-во товаров на стр.:
       <select name="pp">
         <?php foreach ($items_pp_arr as $item_pp) : ?>
-          <option value="<?php echo $item_pp; ?>" <?php echo ($item_pp == $_SESSION['pp']) ? " selected" : ""; ?>>
+          <option value="<?php echo $item_pp; ?>" <?php echo ($item_pp == $items_pp) ? " selected" : ""; ?>>
             <?php echo $item_pp; ?> товар(ов/а)
           </option>
         <?php endforeach; ?>
