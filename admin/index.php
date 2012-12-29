@@ -17,7 +17,6 @@ if(!(isset($_SESSION['role'])&&$_SESSION['role']<=ROLE_PUBLISHER)) {
   die("У Вас нет прав на доступ сюдой!");
 }
 $content=''; // содержимое страницы
-$users;
 //Routing
 if (isset($_GET['object'])) {
   $object = $_GET['object'];

@@ -5,7 +5,10 @@
  * @param string $filename имя выводимого файла (шаблона)
  * @return string строковый результат работы файла 
  */
-function getHtmlContent($filename) {
+function getHtmlContent($filename, $data = array()) {
+  foreach ($data as $key => $value) {
+    $$key = $value;
+  }
   ob_start();
   if(file_exists($filename)){
     require($filename);

@@ -6,7 +6,6 @@
   <?php echo @$_SESSION['sucсess_message'];
   unset($_SESSION['sucсess_message']);?>
 </div>
-
 <table class="users">
   <caption>
     <a href="?object=user&action=add" title="Добавить нового пользователя">[ + ]</a>

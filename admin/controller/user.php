@@ -4,8 +4,9 @@ require_once 'model/user.php';
  * Контроллер списка пользователей
  */
 function user_list() {
-  $users = getUsers();
-  include 'view/user/user_list.php';
+  global $content;
+  $data['users'] = getUsers();
+  $content = getHtmlContent('view/user/user_list.php',$data);
 }
 
 function user_delete($id) {
@@ -14,7 +15,8 @@ function user_delete($id) {
 }
 
 function user_add() {
-  include 'view/user/user_form.php';
+  global $content;
+  $content = getHtmlContent('view/user/user_form.php');
 }
 
 function user_insert() {
@@ -23,8 +25,9 @@ function user_insert() {
 }
 
 function user_edit($id) {
-  $user = getUser($id);
-  include 'view/user/user_form.php';
+  global $content;
+  $data['user'] = getUser($id);
+  $content = getHtmlContent('view/user/user_form.php',$data);
 }
 
 function user_update($id) {
