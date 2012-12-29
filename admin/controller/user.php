@@ -22,5 +22,15 @@ function user_insert() {
   header("Location: ?object=user");
 }
 
+function user_edit($id) {
+  $user = getUser($id);
+  include 'view/user/user_form.php';
+}
+
+function user_update($id) {
+  updateUser($id);
+  header("Location: ?object=user");
+}
+
 
 ?>

@@ -22,6 +22,7 @@ AND  `pass` =  '" . $_POST['pass1'] . "'"; // формирование SQL-за�
       // записываем в сессию role и login
       $_SESSION['role'] = $user['role'];
       $_SESSION['login'] = $_POST['login1'];
+      $_SESSION['avatar'] = $user['avatar'];
     }
 
     if (!isset($_SESSION['role'])) { // если пользователь авторизован

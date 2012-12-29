@@ -2,6 +2,7 @@
 
 // Front-controller backenda
 require_once '../include/config.php';
+require_once '../lib/library.php';
 
 session_start();
 error_reporting(E_ALL);
@@ -15,6 +16,8 @@ if(!(isset($_SESSION['role'])&&$_SESSION['role']<=ROLE_PUBLISHER)) {
   header('Location: /mklass2012/');
   die("У Вас нет прав на доступ сюдой!");
 }
+$content=''; // содержимое страницы
+$users;
 //Routing
 if (isset($_GET['object'])) {
   $object = $_GET['object'];
@@ -41,4 +44,6 @@ if (isset($_GET['object'])) {
 } else {
   // Выводим страницу по умолчанию 
 }
+
+include 'view/index.php';
 ?>

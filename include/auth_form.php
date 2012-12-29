@@ -1,6 +1,7 @@
 
 <?php if(isset($_SESSION['role'])){ // если пользователь авторизован ?>
 <div id="logout">
+  <img style="max-height: 100px;max-width: 100px;" src="img/avatars/<?php echo $_SESSION['avatar']; ?>" />
   <form>
     <div class="login"><?php echo $_SESSION['login'] ?></div>
     <input type="submit" name="logout" value="Выйти" />
